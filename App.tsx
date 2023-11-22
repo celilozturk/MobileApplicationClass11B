@@ -8,6 +8,7 @@
 import React from 'react';
 import {
   SafeAreaView,
+  StyleSheet,
   Text,
   View,
 } from 'react-native';
@@ -29,11 +30,30 @@ function App(): JSX.Element {
   return (
     <SafeAreaView >
       <View>
-        <Text>{mesaj2}</Text>
+        <Text style={styles.mesaj}>{mesaj}</Text>
+        <Text style={styles.mesaj2}>{mesaj2}</Text>
+        <Text style={styles.metin}>Merhaba Dunya</Text>
       </View>
     </SafeAreaView>
   );
 }
+
+const styles=StyleSheet.create({
+  mesaj:{
+    color:'red',
+    backgroundColor:'gray',
+  },
+  mesaj2:{
+    color:'green',
+    backgroundColor:'yellow',
+  },
+  metin:{
+    textAlign:'center',
+    color:'red',
+    backgroundColor:'Black'
+  }
+
+})
 
 
 export default App;
