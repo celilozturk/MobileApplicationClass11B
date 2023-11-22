@@ -12,7 +12,7 @@ let soyad = "ORHAN";
 let sinif = "11B";
 let ders = "Mobile Uygulamalar";
 let mesaj = `Hosgeldin ${ad}`;
-let year = 2023;
+let yil = 2023;
 
 
 
@@ -29,7 +29,7 @@ function App(): JSX.Element {
           <Text style={styles.textStyle}>Ders: {ders}</Text>
       </View>
       <View style={styles.box3}>
-        <Text style={styles.textStyle}> {year}</Text>
+        <Text style={styles.textStyle}> {yil}</Text>
       </View>
     </SafeAreaView>
   );
