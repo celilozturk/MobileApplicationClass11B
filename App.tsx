@@ -7,13 +7,6 @@
 
 import React from 'react';
 import { SafeAreaView, StyleSheet, Text, View, Image, Button, Alert, TouchableOpacity } from 'react-native';
-let ad = "Emir";
-let soyad = "ORHAN";
-let sinif = "11B";
-let ders = "Mobile Uygulamalar";
-let mesaj = `Hosgeldin ${ad}`;
-let yil = 2023;
-
 
 
 function App(): JSX.Element {
