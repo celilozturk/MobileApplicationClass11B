@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { SafeAreaView, StyleSheet, Text, View, } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, View, Image, Button, Alert, TouchableOpacity } from 'react-native';
 let ad = "Emir";
 let soyad = "ORHAN";
 let sinif = "11B";
@@ -19,53 +19,40 @@ let yil = 2023;
 function App(): JSX.Element {
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.box1}>
-        <Text style={styles.mesaj}>{mesaj}</Text>
-      </View>
-      <View style={styles.box2}>
-          <Text style={styles.textStyle}>Ad: {ad}</Text>
-          <Text style={styles.textStyle}>Soyad: {soyad}</Text>
-          <Text style={styles.textStyle}>Sinif: {sinif}</Text>
-          <Text style={styles.textStyle}>Ders: {ders}</Text>
-      </View>
-      <View style={styles.box3}>
-        <Text style={styles.textStyle}> {yil}</Text>
-      </View>
+      <Image source={{ uri: "https://picsum.photos/200/300" }} style={{ width: 200, height: 200 ,marginTop:10}} />
+      <Text>Image from url</Text>
+
+      <Image source={require("./Assets/Pictures/tree.jpg")} style={{ width: 100, height: 150 }} />
+      <Text>Image from local sources</Text>
+
+      <Button onPress={() => Alert.alert("pressed!")}
+        title="Click"
+        color="hsl(196, 100%, 50%)"
+        accessibilityLabel="Learn more about this purple button"
+      />
+
+      <TouchableOpacity style={styles.touchableOpacityComponentStil} onPress={()=>Alert.alert("Clicked TOC")}>
+        <Text style={{color:"white"}}>Click</Text>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
 
-  mesaj: {
-    textAlign: 'center',
-    color: 'red',
-    backgroundColor: 'black'
-  },
   container: {
-    flex: 1, padding: 10
+    flex: 1, padding: 10,
+    alignItems:"center",
+    justifyContent:"center"
   },
-  box1: {
-    flex: 1,
-    backgroundColor: 'red',
-    justifyContent: 'center'
-  },
-  box2: {
-    flex: 4,
-    backgroundColor: 'orange',
-    justifyContent: 'center',
-    alignItems: 'center'
-
-  },
-  box3: {
-    flex: 1,
-    backgroundColor: 'green',
-    alignItems:'center',
-    justifyContent:'center'
-  },
-  textStyle: {
-    fontSize: 18,
-    fontWeight: 'bold'
+  touchableOpacityComponentStil:{
+     borderRadius:20,
+     width:50,
+     height:30,
+     backgroundColor:"hsl(196, 51%, 50%)",
+     alignItems:"center",
+     justifyContent:"center",
+     marginTop:30
   }
 
 })
