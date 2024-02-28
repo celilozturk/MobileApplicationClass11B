@@ -5,35 +5,40 @@
  * @format
  */
 
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
   Text,
   View,
 } from 'react-native';
-let ad="Ege";
-let soyad="AYDIN";
 
-let mesaj=`Merhaba, benim adim ${ad} soyadim ${soyad}`;
-console.log(mesaj);
-
-let marka="Ford";
-let model="Mustang";
-let renk="Gri";
-
-let mesaj2=`Benim ${marka} marka ${model} model ${renk} bir arabam var`;
 
 function App(): JSX.Element {
 
+// const [todos,setTodos]=useState<any[]>([]);
+const [todos,setTodos]=useState([]);
+const [sayilar,setSayilar]=useState([0,1,2,3,4,5,6,7,8,9])
 
+useEffect(()=>{
+  fetch("https://jsonplaceholder.typicode.com/todos")
+  .then((response)=>response.json())
+  .then(json=>setTodos(json))
+},[])
   return (
     <SafeAreaView >
-      <View>
-        <Text style={styles.mesaj}>{mesaj}</Text>
-        <Text style={styles.mesaj2}>{mesaj2}</Text>
-        <Text style={styles.metin}>Merhaba Dunya</Text>
-      </View>
+      {
+        todos.map((todo,index)=>(
+          <Text>{todo["id"]} - {todo['title']}</Text>
+        ))
+      }
+      <View >
+    {
+      sayilar.map((sayi,index)=>(
+        <Text>{sayi} </Text>
+      ))
+    }
+  </View>
     </SafeAreaView>
   );
 }
